@@ -1,4 +1,4 @@
-// Loading
+// зареждане
 window.addEventListener('load', () => {
     $("#loading-screen").fadeOut(800);
     if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true")

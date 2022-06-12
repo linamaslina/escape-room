@@ -1,10 +1,10 @@
-// Loading
+// зареждане
 $(window).on("load", function() {
     $("#loading-screen").fadeOut(750);
     console.log("Заредена страница.");
   });
 
-  // add to backpack/add to room from backpack
+  // добавяне към инвентар/добавяне към стаята от инвентара
   function toggleBackpack(){ // функционира само с картинки
     var backpack = document.getElementById('backpack');
     var item = event.target.id;
@@ -14,7 +14,7 @@ $(window).on("load", function() {
       backpack.appendChild(document.getElementById(item));
     } else 
     {
-      // detect room
+      // разпознаване на стая
       if(document.getElementById('room1').style.display == "block")
       {
         var roomName = "room1";
@@ -35,7 +35,7 @@ $(window).on("load", function() {
       {
         console.log("Грешка");
       }
-      // use item
+      // използване на предмет
       console.log("Ти си предметът в раницата.")
       if(item == "item-fire1"){
         if(document.getElementById('item-fire2').parentNode.id == roomName)
@@ -97,7 +97,7 @@ $(window).on("load", function() {
         if(roomName == "room3")
         {
           document.getElementById('item-apple1').remove();
-          // get the correct fruitbowl image
+          // взима правилната купа с плодове
           if(sessionStorage.getItem('fruitbowlNumber') == "1")
           {
             createNewWindow('Интересни букви върху купата', 'image', 'graphics/rooms/kitchen/fruitbowl1.png');
@@ -120,8 +120,8 @@ $(window).on("load", function() {
     console.log(item + " добавен към " + event.target.parentNode.id);
   }
 
-  // change room
-  function nextRoom(){ // go to the next room
+  // смяна на стая
+  function nextRoom(){ // отиване на следвашата стая
     var numberOfRooms = 4;
     if(document.getElementById('room1').style.display == "block")
     {
@@ -161,7 +161,7 @@ $(window).on("load", function() {
     document.getElementById('puzzleWindowContainer').innerHTML = '';
   }
 
-  function lastRoom() { // go to the last room
+  function lastRoom() { // отиване до последната стая
     var numberOfRooms = 4;
     if(document.getElementById('room1').style.display == "block")
     {
@@ -427,7 +427,7 @@ $(window).on("load", function() {
             var code1 = "5764291";
             var code2 = "5764921";
           }
-          // check with your code
+          // проверка на кода
           var yourCode = newInput1.value.toString() + newInput2.value.toString() + newInput3.value.toString() + newInput4.value.toString() + newInput5.value.toString() + newInput6.value.toString() + newInput7.value.toString();
           if(yourCode.toUpperCase().includes(code1) || yourCode.toUpperCase().includes(code2))
           {
@@ -439,7 +439,7 @@ $(window).on("load", function() {
             newInput5.value = "";
             newInput6.value = "";
             newInput7.value = "";
-            // get score
+            // получаване на резултат
             sessionStorage.setItem('yourTime', sessionStorage.getItem('time'));
             if(localStorage.getItem('highscore') == null)
             {
@@ -455,12 +455,12 @@ $(window).on("load", function() {
             {
               console.log('Не постигна нов рекорд.')
             }
-            // show your score
+            // показване на време
             var showTime1 = sessionStorage.getItem('yourTime') / 60;
             var showTimeMin = Math.floor(showTime1);
             var showTimeSec1 = showTime1.toFixed(2) - showTimeMin;
             var showTimeSec = showTimeSec1 * 60;
-            // show your highscore
+            // показване на рекорд
             var showHighscore1 = localStorage.getItem('highscore') / 60;
             var showHighscoreMin = Math.floor(showHighscore1);
             var showHighscoreSec1 = showHighscore1.toFixed(2) - showHighscoreMin;
@@ -468,14 +468,14 @@ $(window).on("load", function() {
             document.getElementById('yourtime').textContent = 'Време: ' + showTimeMin + ':' + showTimeSec.toFixed(0) + ' мин';
             document.getElementById('highscore').textContent = 'Рекорд: ' + showHighscoreMin + ':' + showHighscoreSec.toFixed(0) + ' мин';
             document.getElementById('hintcounter').textContent = 'Използвани подсказки: ' + sessionStorage.getItem('hints');
-            // end game
+            // край на играта
             document.getElementById('room4').style.display = "none";
             document.getElementById('backpack').style.display = "none";
             document.getElementById('controlButtons').style.display = "none";
             document.getElementsByClassName('puzzleWindow')[0].remove();
             document.getElementById('congrats').style.display = "block";
 
-
+            //добавяне на времето и потребителското име на играча към класацията
             let data = {
               username: localStorage.getItem("username"),
               alltime: showTimeMin + ':' + showTimeSec.toFixed(0)
@@ -491,7 +491,7 @@ $(window).on("load", function() {
               localStorage.removeItem('username')
             })
             .catch(err => console.error(err))
-            // THE END
+            //край
           }
           else
           {
@@ -541,25 +541,6 @@ $(window).on("load", function() {
           newWindow.appendChild(newItem);
         }
       }
-      else if(windowtype == "sources")
-      {
-        var newText = document.createElement('p');
-        newText.style.textAlign = "justify";
-        newText.style.margin = "5px";
-        newText.textContent = "Pixabay,Canva";//източници
-        newWindow.appendChild(newText);
-        var newImage = document.createElement('img');
-        newImage.src = "https://pixabay.com/static/img/public/medium_rectangle_b.png";
-        newImage.style.width = "200px";
-        newImage.style.borderRadius = "8px";
-        newImage.draggable = false;
-        newWindow.appendChild(newImage);
-        newWindow.style.padding = "5px";
-        newWindow.style.paddingRight = "0";
-        newWindow.style.background = "#e67e22";
-        newWindow.style.color = "#fff";
-        newWindow.style.border = "8px solid #fff";
-      }
       else if(windowtype == "tutorial")
       {
         var newText = document.createElement('p');
@@ -572,7 +553,7 @@ $(window).on("load", function() {
         newWindow.style.paddingLeft = "5px";
       }
       document.getElementById("puzzleWindowContainer").appendChild(newWindow);
-      // add event listener
+      
       if(windowtype == "keypad")
       {
         newCloseBtn.addEventListener("click", function(){

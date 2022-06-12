@@ -7,7 +7,7 @@
             document.getElementById("scoreBoard").innerHTML='<object type="text/html" data="ranking.php" ></object>';
           }
           console.log("check123: ", localStorage.getItem("username"));
-          //setInterval(update, 1000);
+          
          </script>
          <link rel="icon" type="image/png" href="graphics/media/1.png">
          <link rel="shortcut icon" type="image/png" href="graphics/media/1.png">
@@ -35,14 +35,6 @@
 
         <div id="content">
           <div class="inner-width">
-            <div id="header">
-              <h1>Избягай от стаята</h1>
-              <div id="description">
-                <p id="desc-small">Трябва да излезете от стаята възможно най-бързо. Можете да използвате стрелките долу  наляво и надясно, за да превключвате между стаи..<a onclick="showDesc();">Покажи повече.</a></p>
-                <p id="desc-full">Трябва да излезете от стаята възможно най-бързо. Можете да използвате стрелките долу  наляво и надясно, за да превключвате между стаи. Като щракнете върху някои елементи, можете да взаимодействате с тях или да ги събирате. Трябва да откриете седемцифрения таен код и да го въведете на вратата в края. Цифрите са скрити, така че дръжте очите си отворени. В края можете да видите за колко време сте успяли да избягате и да опитате отново, за да подобрите времето си. <a onclick="showDesc();">Покажи по-малко!</a></p>
-              </div>
-
-            </div>
             <div id="fullscreen-area">
               <div id="game-container">
               <iframe id="game-frame" src="game.html" title="Escape Room" allowfullscreen="true" scrolling="no">Грешка, играта не може да зареди!</iframe>
@@ -58,15 +50,6 @@
         <div id ="scoreBoard">
           <?php require('ranking.php'); ?>
         </div>
-
-        <!-- <div id="stats">
-          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fescape.michivonah.ch&count_bg=%23E67E22&title_bg=%233498DB&icon=&icon_color=%23E7E7E7&title=Michi%27s+Escape+Room&edge_flat=false">
-        </div>
-
-        <div id="screensize-error">
-          <i class="fas fa-times-circle"></i>
-          <h1>Моля, завъртете устройството, за да играете играта. Играта поддържа само пейзажен режим.</h1>
-        </div> -->
 
 </body>
 </html>

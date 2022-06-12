@@ -4,6 +4,7 @@ html{
 
    body{
      margin: 0;
+     margin-top:2vw !important;
      padding: 0;
      color: var(--color);
      background: #7C708F;
@@ -38,24 +39,6 @@ html{
      margin: 5px;
    }
 
-   #desc-full {
-    display: none;
-   }
-
-   #header{
-     margin: 5px;
-   }
-
-   #description{
-     text-align: justify;
-   }
-
-   #description a{
-     user-select: none;
-     cursor: pointer;
-   }
-
-
    #game-container{
      margin: auto;
    }
@@ -71,6 +54,7 @@ html{
      border: 4px solid;
      border-radius: 8px;
      overflow: hidden;
+     
    }
 
    .inner-width{
@@ -153,6 +137,7 @@ html{
      #game-container iframe{
        width: 125vh;
        height: calc(100vh - 20px);
+       
        /*max-width: calc(650px * 0.8);
        max-height: calc(650px * 0.6);*/
        scroll-behavior: smooth;

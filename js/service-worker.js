@@ -1,11 +1,15 @@
 const workerCache = "escape-room-v1"
 const assets = [
   "/",
-  "/index.html",
+  "/main.php",
+  "/ranking.php",
+  "/saveRanking.php",
+  "/database.sql",
   "/css/style.css",
   "/game.html",
   "/css/game.css",
-  "/manifest.json",
+  "/includes/dbh.inc.php",
+  "/includes/submit.inc.php",
   "/graphics/exit.svg",
   "/graphics/room_template.svg",
   "/graphics/room_template_mirrored.svg",

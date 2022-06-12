@@ -643,3 +643,8 @@ html {
    ::-moz-selection {
      background: #5499c7; color: #ffffff;
     }
+
+    input::placeholder{
+      color:#cfc5f7;
+      text-align:center;
+    }
