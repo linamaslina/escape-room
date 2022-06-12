@@ -465,8 +465,8 @@ $(window).on("load", function() {
             var showHighscoreMin = Math.floor(showHighscore1);
             var showHighscoreSec1 = showHighscore1.toFixed(2) - showHighscoreMin;
             var showHighscoreSec = showHighscoreSec1 * 60;
-            document.getElementById('yourtime').textContent = 'Време: ' + showTimeMin + ':' + showTimeSec.toFixed(0) + 'мин';
-            document.getElementById('highscore').textContent = 'Рекорд: ' + showHighscoreMin + ':' + showHighscoreSec.toFixed(0) + 'мин';
+            document.getElementById('yourtime').textContent = 'Време: ' + showTimeMin + ':' + showTimeSec.toFixed(0) + ' мин';
+            document.getElementById('highscore').textContent = 'Рекорд: ' + showHighscoreMin + ':' + showHighscoreSec.toFixed(0) + ' мин';
             document.getElementById('hintcounter').textContent = 'Използвани подсказки: ' + sessionStorage.getItem('hints');
             // end game
             document.getElementById('room4').style.display = "none";

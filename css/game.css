@@ -316,7 +316,8 @@ html {
    }
 
    #reload {
-     margin-top: 20px;
+     margin-top: 30px;
+     margin-left: 25vw;
      width: 50%;
      padding: 10px;
      background: #4c2993;
