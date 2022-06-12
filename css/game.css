@@ -1,0 +1,635 @@
+html {
+  scroll-behavior: smooth;
+}
+
+   body {
+     margin: 0;
+     padding: 0;
+     color: #000;
+     background: #fff;
+     text-align: left;
+     font-family: "Open Sans", sans-serif;
+   }
+
+   #loading-screen {
+     margin: 0;
+     width: 100%;
+     height: 100vh;
+     overflow: hidden;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background: #4c2993;
+     text-align: center;
+     z-index: 999;
+   }
+
+   #loader img {
+     width: 80%;
+     max-width: 200px;
+     height: auto;
+     margin-top: 30vh;
+     animation: loading 4s infinite;
+   }
+
+   #game {
+     margin: 0;
+     user-select: none;
+   }
+
+   #rooms {
+     width: 100%;
+     height: auto;
+     background: #4c2993;
+   }
+
+   #room1 {
+     background-image: url("../graphics/room_template.svg");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+   }
+   #item-desk1 {
+    position:absolute; 
+    top: 55vh; 
+    left: 8%; 
+    width:44.4%;
+   }
+   #item-apple1 {
+    position: absolute; 
+    top: 78%; 
+    left: 64%; 
+    width:7.5%;
+   }
+   #item-officechair1 {
+    position: absolute; 
+    top: 55vh; 
+    left: 42%; 
+    width:18%;
+   }
+   #item-pocketligher1 {
+    position: absolute; 
+    top: 56vh; 
+    left: 35%; 
+    width:4.5%;
+   }
+   #item-londonpicture1 {
+    position: absolute; 
+    top: 8vh; 
+    left: 60%; 
+    width: 25%;
+   }
+   #item-flower1 {
+    position: absolute; 
+    top: 55%; 
+    left: 80%; 
+    width: 9.63%;
+   }
+   #item-lightbulb1 {
+    position: absolute; 
+    top: 70%; 
+    left: 66%; 
+    width: 6.81%;
+   }
+   #item-map1 {
+    position: absolute; 
+    top: 55%; 
+    left: 25%; 
+    width: 7.38%; 
+    transform: rotate(-6deg);
+   }
+   #item-letter1 {
+    position: absolute; 
+    top: 63%; 
+    left: 20%; 
+    width: 7.38%; 
+    transform: rotate(0deg);
+   }
+
+   #room2 {
+     background-image: url("../graphics/room_template_mirrored.svg");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+     filter: brightness(5%);
+   }
+   #item-bed1 {
+    position: absolute; 
+    top: 51vh; 
+    left: 38%; 
+    width:60%;
+   }
+   #item-cabinet1 {
+    position: absolute; 
+    top: 32vh; 
+    left: -2%; 
+    width:18.18%;
+   }
+   #item-chair4 {
+    position: absolute; 
+    top: 41vh; 
+    left: 15%; 
+    width:30%; 
+    z-index: 80;
+   }
+   #item-tshirt1 {
+    position: absolute; 
+    top: 40vh; 
+    left: 20%; 
+    width:19.8%; 
+    z-index: 82;
+   }
+   #item-key1 {
+    position: absolute; 
+    top: 53.5vh; 
+    left: 27%; 
+    width: 8.522%; 
+    z-index: 81; 
+    transform: rotate(25deg);
+   }
+   #item-candle1 {
+    position: absolute; 
+    top: 75vh; 
+    left: 76%; 
+    width: 3.4%;
+   }
+   #item-lamp1 {
+    position: absolute; 
+    top: 0vh; 
+    left: 30%; 
+    width:14.77%;
+   }
+   #item-fire1 {
+    position: absolute; 
+    top: 65vh; 
+    left: 2%; 
+    width:7.09%;
+   }
+   #item-window1 {
+    position: absolute; 
+    top: 10%; 
+    left: 55%; 
+    width:25%; 
+    filter: opacity(95%) brightness(110%);
+   }
+
+   #room3 {
+     background-image: url("../graphics/room_template.svg");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+   }
+   #item-oven1 {
+    position: absolute; 
+    top: 41vh; 
+    left: 18%; 
+    width: 20.45%;
+   }
+   #item-table1 {
+    position: absolute; 
+    top: 48vh; 
+    left: 63%; 
+    width: 28%; 
+    z-index: 71;
+   }
+   #item-chair1 {
+    position: absolute; 
+    top: 60vh; 
+    left: 50%; 
+    width: 18.5%; 
+    z-index: 69;
+   }
+   #item-chair2 {
+    position: absolute; 
+    top: 60vh; 
+    left: 84%; 
+    width: 18.5%; 
+    z-index: 72;
+   }
+   #item-teddy1 {
+    position: absolute; 
+    top: 47vh; 
+    left: 54%; 
+    width: 10.795%; 
+    z-index: 70;
+   }
+   #item-calendar1 {
+    position: absolute; 
+    top: 22vh; 
+    left: 45%; 
+    width: 11.36%;
+   }
+   #item-fruitbowl1 {
+    position: absolute; 
+    top: 48vh; 
+    left: 72.5%; 
+    width: 9.09%; 
+    z-index: 75;
+   }
+   #item-window2 {
+    position: absolute; 
+    top: 11%; 
+    left: 66%; 
+    width:25%;
+   }
+   #item-pan1 {
+    position: absolute; 
+    top: 35vh; 
+    left: 29%; 
+    width:9.659%; 
+    z-index: 76;
+   }
+   #item-fire2 {
+    position: absolute; 
+    top: 27%; 
+    left: 28.5%; 
+    width: 9.09%; 
+    z-index: 77;
+   }
+
+   #room4 {
+     background-image: url("../graphics/exit.svg");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+   }
+   #item-door1 {
+    position: absolute; 
+    top: 14vh; 
+    left: 27%; 
+    width: 18%; 
+    z-index: 90;
+   }
+   #item-keypad1 {
+    position: absolute; 
+    top: 43vh; 
+    left: 36%; 
+    width: 4.545%; 
+    z-index: 91; 
+    display: none;
+   }
+   #item-lock1 {
+    position: absolute; 
+    top: 47%; 
+    left: 43%; 
+    width: 2.5%; 
+    z-index: 92; 
+    display: none;
+   }
+   #item-shoe1 {
+    position: absolute; 
+    top: 62vh; 
+    left: 65%; 
+    width: 6.81%; 
+    transform: scaleX(-1);
+   }
+   #item-shoe2 {
+    position: absolute; 
+    top: 63vh; 
+    left: 15%; 
+    width: 9.09%;
+   }
+   #item-hanger1 {
+    position: absolute; 
+    top: 21vh; 
+    left: 42%; 
+    width: 40%;
+   }
+
+   #congrats {
+     background-image: url("../graphics/congrats/rooms-gif.gif");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+     font-family: 'Indie Flower', cursive;
+     font-size: 24px;
+     padding: 15px;
+     background: #4c2993;
+     color: #fff;
+   }
+   #ballons {
+    position: absolute; 
+    top: 60vh; 
+    left: 75%; 
+    width: 120px;
+   }
+
+   #congrats h1 {
+     margin: 0px;
+     display: block;
+     font-family: 'Indie Flower', cursive;
+     font-size: 36px;
+   }
+
+   #congrats button {
+     margin: 0px;
+     width: 60%;
+     height: auto;
+     background: #4c2993;
+     color: #fff;
+     font-size: 24px;
+     border: 4px solid #fff;
+     border-radius: 8px;
+     outline: none;
+   }
+
+   #startscreen {
+     background-image: url("../graphics/congrats/rooms-gif.gif");
+     background-repeat: no-repeat;
+     background-size: auto 100%;
+     min-height: 100vh;
+     font-size: 24px;
+     padding: 0;
+     padding-top: 15px;
+     color: #fff;
+     text-align: center;
+     display: block;
+   }
+
+   #startscreen button {
+     margin: 10px;
+     margin-left: 0%;
+     width: 60%;
+     height: auto;
+     background: #4c2993;
+     color: #fff;
+     font-size: 24px;
+     border: 3px solid #fff;
+     border-radius: 8px;
+     outline: none;
+     padding-top: 1vw;
+     padding-bottom: 1vw;
+   }
+
+   #startscreen img {
+     margin-top: -5vw;
+     width: 100%;
+     max-width: 700px;
+     margin-bottom: -12vw;
+   }
+
+   .room {
+     display: none;
+     width: 100%;
+     height: auto;
+     min-height: 150px;
+     background: #cfc5f7;
+     overflow: hidden;
+   }
+
+   .room h1 {
+     margin: 10px;
+     display: none;
+   }
+
+   #lastRoom {
+    float: left;
+   }
+   #nextRoom {
+    float: right;
+   }
+
+   #backpack {
+     width: 100%;
+     height: auto;
+     min-height: 56px;
+     background: #4c2993;
+     position: absolute;
+     bottom: 0;
+     text-align: center;
+     display: none;
+   }
+
+   #backpack img {
+     width: auto;
+     max-width: 66px;
+     min-height: 26px;
+     max-height: 46px;
+     margin: 5px;
+     position: static;
+     right: 0;
+     left: 0;
+   }
+
+   #backpack img:hover {
+     filter: grayscale(100%);
+     cursor: pointer;
+   }
+
+   .backpack-btn {
+     font-size: 36px;
+     margin: 10px;
+     color: #000;
+   }
+
+   .backpack-btn:hover {
+     cursor: pointer;
+     color: #fff;
+   }
+
+   .puzzleWindow {
+     width: 90%;
+     height: auto;
+     min-height: 300px;
+     position: fixed;
+     top: 24px;
+     background: #4c2993;
+     margin: auto;
+     margin-left: 5%;
+     border: 8px solid #000;
+     border-radius: 12px;
+     z-index: 150;
+     text-align: center;
+   }
+
+   .puzzleWindow h1{
+     margin: 5px;
+     text-align: left;
+   }
+
+   .puzzleWindow i {
+     font-size: 36px;
+     margin: 10px;
+     position: fixed;
+     top: 34px;
+     transition: .2s all;
+     right: 5%;
+     cursor: pointer;
+   }
+
+   .puzzleWindow i:hover {
+     color: #fff;
+   }
+
+   .puzzleWindow img {
+     margin: 10px;
+     width: auto;
+     height: auto;
+     max-height: 50vw;
+     max-width: 80%;
+   }
+
+   .puzzleWindow input {
+     margin: 10px;
+     width: 5%;
+     height: auto;
+     background: #f9f9f9;
+     color: #000;
+     font-size: 22px;
+     border: 4px solid #000;
+     border-radius: 8px;
+     outline: none;
+     -webkit-appearance: none;
+     -moz-appearance: textfield;
+   }
+
+   #calendarInput {
+     margin: 10px;
+     width: 80%;
+     height: auto;
+     background: #f9f9f9;
+     color: #000;
+     font-size: 22px;
+     border: 4px solid #000;
+     border-radius: 8px;
+     outline: none;
+   }
+
+   .puzzleWindow button {
+     margin: 10px;
+     margin-left: 5px;
+     width: 10%;
+     height: auto;
+     background: #f9f9f9;
+     color: #000;
+     font-size: 22px;
+     border: 4px solid #000;
+     border-radius: 8px;
+     outline: none;
+   }
+
+   .puzzleWindow textarea {
+     margin: 10px;
+     width: 90%;
+     height: auto;
+     min-height: 150px;
+     max-height: 45vh;
+     background: #f9f9f9;
+     color: #000;
+     font-size: 16px;
+     font-family: "Open Sans", sans-serif;
+     border: 4px solid #000;
+     border-radius: 8px;
+     outline: none;
+     resize: vertical;
+   }
+
+   .controlbutton {
+     height: 46px;
+     width: 46px;
+     font-size: 24px;
+     border: none;
+     border-radius: 50%;
+     margin: 15px;
+     color: #fff;
+     background: #4c2993;
+     float: right;
+     position: fixed;
+     outline: none;
+   }
+
+   #help-btn {
+     right: 0;
+     bottom: 71px;
+     display: none;
+     z-index: 800;
+   }
+
+   button:hover {
+     filter: grayscale(50%);
+     cursor: pointer;
+   }
+
+   @keyframes loading {
+     to {
+       transform: rotate(720deg);
+     }
+   }
+
+   @keyframes item-fire1 {
+     from {
+       bottom: 0;
+       left: calc(50% - 40px);
+       width:40px;
+       z-index: 79;
+     }
+     to {
+       top: 35vh;
+       left: 25%;
+       width:40px;
+       z-index: 79;
+     }
+   }
+
+   @keyframes item-pocketligher1 {
+     from{
+       bottom: 0;
+       left: calc(50% - 30px);
+       width:30px;
+     }
+     to{
+       top: 72vh;
+       left: 76%;
+     }
+   }
+
+   @media screen and (max-height:550px){
+     #backpack {
+       width: 100%;
+       height: auto;
+       min-height: 36px;
+       max-height: 36px;
+     }
+
+     #backpack img {
+       width: auto;
+       max-width: 49.5px;
+       min-height: 19.5px;
+       max-height: 34.5px;
+     }
+
+     .backpack-btn {
+       font-size: 22px;
+       margin: 5px;
+       color: #000;
+     }
+
+     .controlbutton {
+       height: 36px;
+       width: 36px;
+       font-size: 14px;
+       margin: 15px;
+     }
+
+     #help-btn {
+       left: 0;
+       top: 0;
+     }
+
+     #startscreen {
+       padding: 0;
+       padding-top: 0px;
+     }
+
+     #startscreen img {
+       width: auto;
+       height: 30vh;
+     }
+   }
+
+   ::selection {
+     background: #5499c7; color: #ffffff;
+    }
+   ::-moz-selection {
+     background: #5499c7; color: #ffffff;
+    }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+         <title>Избягай от стаята</title>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://d3js.org/d3.v6.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+         <link rel="stylesheet" type="text/css" href="css/game.css">
+         <script src="js/game.js"></script>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body onload="window.setInterval('timecounter()',1000)" oncontextmenu="return false;">
+
+        <div id="loading-screen">
+          <div id="loader">
+            <img src="graphics/rooms/kitchen/teddy.png">
+          </div>
+        </div>
+
+        <div id="game">
+          <div id="rooms">
+            <div id="room1" class="room">
+              <h1>Офис</h1>
+              <img id="item-desk1" src="graphics/rooms/office/desk.png" draggable="false">
+              <img id="item-apple1" src="graphics/rooms/office/apple.png" draggable="false" onclick="toggleBackpack()">
+              <img id="item-officechair1" src="graphics/rooms/office/office_chair.png" draggable="false" onclick="createNewWindow('Офис стол', 'zoom', 'graphics/rooms/office/office_chair.png')">
+              <img id="item-pocketligher1" src="graphics/rooms/office/pocketlighter.png" draggable="false" onclick="toggleBackpack()">
+              <img id="item-londonpicture1" src="graphics/rooms/office/london_picture.png" draggable="false">
+              <img id="item-flower1" src="graphics/rooms/office/flower.png" draggable="false" onclick="useItemfromBackpack('item-wateringcan1')">
+              <img id="item-lightbulb1" src="graphics/rooms/office/lightbulb.png" draggable="false" onclick="toggleBackpack()">
+              <img id="item-map1" src="graphics/rooms/office/map.svg" draggable="false" onclick="createNewWindow('Карта на Европа', 'image', 'graphics/rooms/office/europe-map.png')">
+              <img id="item-letter1" src="graphics/rooms/office/letter.png" draggable="false" onclick="createNewWindow('Шифър', 'image', 'graphics/rooms/office/code.png')">
+            </div>
+            <div id="room2" class="room">
+              <h1>Спалня</h1>
+              <img id="item-bed1" src="graphics/rooms/bedroom/bed.png" draggable="false" onclick="useItemfromBackpack('item-teddy1')">
+              <img id="item-cabinet1" src="graphics/rooms/bedroom/cabinet.svg" draggable="false" onclick="createNewWindow('Гардероб', 'cabinet', 'graphics/rooms/bedroom/wateringcan.png')">
+              <img id="item-chair4" src="graphics/rooms/bedroom/chair.png" draggable="false">
+              <img id="item-tshirt1" src="graphics/rooms/bedroom/tshirt.png" draggable="false" onclick="removeItem()">
+              <img id="item-key1" src="graphics/rooms/bedroom/key.svg" draggable="false" onclick="toggleBackpack()">
+              <img id="item-candle1" src="graphics/rooms/bedroom/candle.svg" draggable="false" onclick="useItemfromBackpack('item-pocketligher1'); createNewWindow('Червена свещ', 'zoom')">
+              <img id="item-lamp1" src="graphics/rooms/bedroom/lamp.png" draggable="false">
+              <img id="item-fire1" src="graphics/rooms/bedroom/fire-extinguisher.svg" draggable="false" onclick="toggleBackpack(); useItemfromBackpack('item-fire1');">
+              <img id="item-window1" src="graphics/rooms/bedroom/bedroom_window.png" draggable="false">
+            </div>
+            <div id="room3" class="room">
+              <h1>Кухня</h1>
+              <img id="item-oven1" src="graphics/rooms/kitchen/oven.png" draggable="false">
+              <img id="item-table1" src="graphics/rooms/kitchen/table.png" draggable="false">
+              <img id="item-chair1" src="graphics/rooms/kitchen/chair.png" draggable="false">
+              <img id="item-chair2" src="graphics/rooms/kitchen/chair.png" draggable="false">
+              <img id="item-teddy1" src="graphics/rooms/kitchen/teddy2.png" draggable="false" onclick="toggleBackpack(); document.getElementById('item-officechair1').src = 'graphics/rooms/office/office_chair2.png'; document.getElementById('item-teddy1').src = 'graphics/rooms/kitchen/teddy.png';">
+              <img id="item-calendar1" src="graphics/rooms/kitchen/calendar.png" onclick="createNewWindow('Календар', 'calendarquiz', 'graphics/rooms/kitchen/calendar2.png')" draggable="false">
+              <img id="item-fruitbowl1" src="graphics/rooms/kitchen/fruitbowl.png" draggable="false" onclick="createNewWindow('Интерестни букви върху купата', 'zoom')">
+              <img id="item-window2" src="graphics/rooms/kitchen/kitchen_window.png" draggable="false">
+              <img id="item-pan1" src="graphics/rooms/kitchen/pan.png" draggable="false" onclick="createNewWindow('Изгорял тиган', 'image', 'graphics/rooms/kitchen/pan.png')">
+              <img id="item-fire2" src="graphics/rooms/kitchen/fire.svg" draggable="false" onclick="useItemfromBackpack('item-fire1')">
+            </div>
+            <div id="room4" class="room">
+              <h1>Изход</h1>
+              <img id="item-door1" src="graphics/rooms/exit/door-lock.png" draggable="false" onclick="useItemfromBackpack('item-key1')">
+              <img id="item-keypad1" src="graphics/rooms/exit/keypad.svg" draggable="false" onclick="createNewWindow('Кодът за излизане от стаята', 'keypad', 'graphics/rooms/exit/keypad.svg')">
+              <img id="item-lock1" src="graphics/rooms/exit/lock.svg" draggable="false" onclick="useItemfromBackpack('item-key1')">
+              <img id="item-shoe1" src="graphics/rooms/exit/shoe1.svg" draggable="false">
+              <img id="item-shoe2" src="graphics/rooms/exit/shoe2.svg" draggable="false" onclick="toggleBackpack()">
+              <img id="item-hanger1" src="graphics/rooms/exit/hanger.png" draggable="false">
+            </div>
+            <div id="congrats" class="room">
+              <h1>Поздравления, успяхте да решите нашата ескейп стая.</h1>
+              <p id="yourtime">Време: грешка</p>
+              <p id="highscore">Рекорд: грешка</p>
+              <p id="hintcounter">Подсказки: грешка</p>
+              <img id="ballons" src="graphics/rooms/congrats/balloons.svg" draggable="false">
+              <p>Ако искате още един път да играете, за да си подобрите времето, цъкнете върху бутона Играй отново.</p>
+              <button onclick="location.reload();">Играй отново</button>
+            </div>
+            <div id="startscreen" class="room">
+              <h1>Избягай от стаята</h1>
+              <img src="graphics/media/1.png" draggable="false">
+              <button onclick="playgame()" id="start-btn">Начало</button>
+              <button onclick="createNewWindow('Указание', 'tutorial')">Указание</button>
+              <button onclick="createNewWindow('Източници', 'sources')">Източници</button>
+            </div>
+          </div>
+
+          <div id="backpack">
+            <div id="lastRoom" class="backpack-btn" onclick="lastRoom()">
+              <i class="fas fa-arrow-circle-left"></i>
+            </div>
+            <div id="backpack-content">
+            </div>
+            <div id="nextRoom" class="backpack-btn" onclick="nextRoom()">
+              <i class="fas fa-arrow-circle-right"></i>
+            </div>
+          </div>
+
+          <div id="puzzleWindowContainer">
+          </div>
+
+          <div id="controlButtons">
+            <button id="help-btn" class="controlbutton" onclick="getHint()"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+</body>
+</html>
