@@ -1,4 +1,4 @@
-const workerCache = "michi-escape-room-v1"
+const workerCache = "escape-room-v1"
 const assets = [
   "/",
   "/index.html",

@@ -307,12 +307,6 @@ html {
      background: #4c2993;
      color: #fff;
    }
-   #ballons {
-    position: absolute; 
-    top: 60vh; 
-    left: 75%; 
-    width: 120px;
-   }
 
    #congrats h1 {
      margin: 0px;
@@ -321,10 +315,10 @@ html {
      font-size: 36px;
    }
 
-   #congrats button {
-     margin: 0px;
-     width: 60%;
-     height: auto;
+   #reload {
+     margin-top: 20px;
+     width: 50%;
+     padding: 10px;
      background: #4c2993;
      color: #fff;
      font-size: 24px;
