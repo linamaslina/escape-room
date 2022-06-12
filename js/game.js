@@ -474,6 +474,23 @@ $(window).on("load", function() {
             document.getElementById('controlButtons').style.display = "none";
             document.getElementsByClassName('puzzleWindow')[0].remove();
             document.getElementById('congrats').style.display = "block";
+
+
+            let data = {
+              username: localStorage.getItem("username"),
+              alltime: showTimeMin + ':' + showTimeSec.toFixed(0)
+            }
+            fetch("http://localhost/escape-room/saveRanking.php", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            })
+            .then((response) => {
+              localStorage.removeItem('username')
+            })
+            .catch(err => console.error(err))
             // THE END
           }
           else
@@ -640,6 +657,8 @@ $(window).on("load", function() {
   }
 
   function playgame() {
+    if(localStorage.getItem("username") == null)
+      return;
     document.getElementById("room1").style.display = "block";
     document.getElementById("room2").style.display = "none";
     document.getElementById("room3").style.display = "none";
