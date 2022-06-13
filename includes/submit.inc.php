@@ -5,7 +5,7 @@
 
     $sql = "INSERT INTO ranking (username)  VALUES ('$first');";
     mysqli_query($conn, $sql);
-    header("Location: ../main.php");
+    header("Location: ../index.php");
 
 
 

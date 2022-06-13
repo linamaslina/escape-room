@@ -480,7 +480,7 @@ $(window).on("load", function() {
               username: localStorage.getItem("username"),
               alltime: showTimeMin + ':' + showTimeSec.toFixed(0)
             }
-            fetch("http://localhost/escape-room/saveRanking.php", {
+            fetch("saveRanking.php", {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 const workerCache = "escape-room-v1"
 const assets = [
   "/",
-  "/main.php",
+  "/index.php",
   "/ranking.php",
   "/saveRanking.php",
   "/database.sql",
