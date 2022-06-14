@@ -1,7 +1,22 @@
+var hintsLoaded = false;
+var hintsCount = 0;
+var hints;
 // зареждане
 $(window).on("load", function() {
     $("#loading-screen").fadeOut(750);
     console.log("Заредена страница.");
+    fetch("hints.php", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+
+    })
+    .then (responce => 
+        responce.json().then(data => {
+        hints = data.map(a => a[1]);
+        hintsLoaded = true;
+      }))
   });
 
   // добавяне към инвентар/добавяне към стаята от инвентара
@@ -673,71 +688,8 @@ $(window).on("load", function() {
     sessionStorage.setItem('time', time);
   }
 
-  function getHint() {
-    var hintCounter = sessionStorage.getItem('hints');
-    hintCounter++;
-    sessionStorage.setItem('hints', hintCounter);
-    var randomNumber = hintCounter;
-    if(sessionStorage.getItem('hints') >= 14)
-    {
-      var randomNumber = randomNumber - 13;
-    }
-    if(sessionStorage.getItem('hints') >= 27)
-    {
-      var randomNumber = 0;
-      sessionStorage.setItem('hints', 27);
-    }
-    var hintName = 'Подсказка ' + randomNumber + '/12';
-    if(randomNumber == "0")
-    {
-      createNewWindow('Всички подсказки са използвани', 'hint', 'Няма повече подсказки.');
-    }
-    else if(randomNumber == "1")
-    {
-      createNewWindow(hintName, 'hint', 'Огледай се!');
-    }
-    else if(randomNumber == "2")
-    {
-      createNewWindow(hintName, 'hint', 'Можеш ли да осветиш тъмната стая?');
-    }
-    else if(randomNumber == "3")
-    {
-      createNewWindow(hintName, 'hint', 'Къде е скрит тайният ключ?');
-    }
-    else if(randomNumber == "4")
-    {
-      createNewWindow(hintName, 'hint', 'Изгаси ли огъня вече?');
-    }
-    else if(randomNumber == "5")
-    {
-      createNewWindow(hintName, 'hint', 'Местата са отбелязани с цифри на картата на Европа.');
-    }
-    else if(randomNumber == "6")
-    {
-      createNewWindow(hintName, 'hint', 'Плюшеното мече на правилното място ли е?');
-    }
-    else if(randomNumber == "7")
-    {
-      createNewWindow(hintName, 'hint', 'Цветята не могат да растат без вода.');
-    }
-    else if(randomNumber == "8")
-    {
-      createNewWindow(hintName, 'hint', 'Обувките са само за декорация.');
-    }
-    else if(randomNumber == "9")
-    {
-      createNewWindow(hintName, 'hint', 'Какво означават буквите на стената? Може би номер?');
-    }
-    else if(randomNumber == "10")
-    {
-      createNewWindow(hintName, 'hint', 'Думата на стената (АФГ) може да се дешифрира с шифъра на бюрото. Това ще ви даде едно от седемте числа.');
-    }
-    else if(randomNumber == "11")
-    {
-      createNewWindow(hintName, 'hint', 'Буквите на купата могат да имат нещо общо с реда на кода?');
-    }
-    else if(randomNumber == "12")
-    {
-      createNewWindow(hintName, 'hint', 'Инициалите на цифрите може да имат значение');
-    }
+  function getHint(){
+    if(hintsCount > hints.length)
+      return;
+    createNewWindow(hintsCount, 'hint', hints[hintsCount++]);
   }
